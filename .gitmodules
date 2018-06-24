@@ -1,0 +1,3 @@
+[submodule "vendor/hayai"]
+	path = vendor/hayai
+	url = https://github.com/nickbruun/hayai.git
