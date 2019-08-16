@@ -6,6 +6,7 @@ C++プロジェクトのテンプレート
 
 * コーディング系
   * clang-format対応
+  * ログ出力 (by spdlog)
 * テスト系
   * ユニットテスト (by Catch2)
   * テストカバレッジ取得 (by gcovr)

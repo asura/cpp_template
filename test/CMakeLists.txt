@@ -9,6 +9,7 @@ add_executable(
 target_link_libraries(
   Tester
   Catch2::Catch2
+  spdlog::spdlog
 )
 cotire(Tester)
 
