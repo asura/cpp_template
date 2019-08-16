@@ -11,5 +11,5 @@ C++プロジェクトのテンプレート
   * テストカバレッジ取得 (by gcovr)
 * ビルド系
   * cmakeプロジェクト
-  * ビルド時にCppCheckを自動実行
+  * ビルド時にCppCheck・clang-tidyを自動実行
   * プリコンパイルヘッダー (by cotire)

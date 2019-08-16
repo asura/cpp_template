@@ -31,7 +31,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(ENABLE_CODECOVERAGE "Enable code coverage testing support")
 
 #######################################
-# プリコリパイルヘッダ対応
+# プリコンパイルヘッダ対応
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/vendor/cotire/CMake)
 include(cotire)
 
@@ -48,6 +48,18 @@ if(CMAKE_CXX_CPPCHECK)
   )
 endif()
 
+#######################################
+# clang-tidyを実行させる (要 CMake 3.6)
+set(
+  CMAKE_CXX_CLANG_TIDY
+  clang-tidy;
+  -checks=*;
+  -header-filter=${CMAKE_SOURCE_DIR}/include;
+  -warnings-as-errors=*;
+)
+
+#######################################
+# テスト関連
 include(CTest)
 enable_testing()
 
@@ -90,5 +102,7 @@ if(ENABLE_CODECOVERAGE)
   endif()
 endif()
 
+#######################################
+# ビルド対象
 add_subdirectory(vendor/catch2)
 add_subdirectory(test)
