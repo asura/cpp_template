@@ -90,4 +90,5 @@ if(ENABLE_CODECOVERAGE)
   endif()
 endif()
 
+add_subdirectory(vendor/catch2)
 add_subdirectory(test)

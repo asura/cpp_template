@@ -6,6 +6,10 @@ add_executable(
   Tester
   main.cpp
 )
+target_link_libraries(
+  Tester
+  Catch2::Catch2
+)
 cotire(Tester)
 
 add_test(
