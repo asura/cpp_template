@@ -53,7 +53,7 @@ endif()
 set(
   CMAKE_CXX_CLANG_TIDY
   clang-tidy;
-  -checks=*;
+  -checks=*,-fuchsia-default-arguments;
   -header-filter=${CMAKE_SOURCE_DIR}/include;
   -warnings-as-errors=*;
 )
