@@ -92,7 +92,7 @@ if(ENABLE_CODECOVERAGE)
     add_custom_target(
       coverage_init
       ALL
-      COMMAND find ${CMAKE_BINARY_DIR} -name "*.gcda" | xargs rm
+      COMMAND find ${CMAKE_BINARY_DIR} -name "*.gcda" | xargs --no-run-if-empty rm
     )
 
     add_custom_target(
