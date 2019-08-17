@@ -1,17 +1,41 @@
 #define CATCH_CONFIG_RUNNER
-#include <spdlog/sinks/stdout_color_sinks.h>
-#include <spdlog/spdlog.h>
+#include "util/Logger.h"
 
 #include <catch.hpp>
+#include <string>
+#include <vector>
 
-int main(int argc, char** argv)
+int main(int the_argc, char** the_argv) noexcept
 {
     try
     {
-        auto logger = spdlog::stdout_color_mt("Tester");
-        logger->info("START");
-        const int result = Catch::Session().run(argc, argv);
-        logger->info("END (result={})", result);
+        util::Logger::LoggersRegister("Tester");
+
+        if (1 < the_argc)
+        {
+            std::string args;
+            for (int i = 1; i < the_argc; ++i)
+            {
+                if (i != 1)
+                {
+                    args += ' ';
+                }
+                args += the_argv[i];
+            }
+
+            UTIL_LOGGING_PRE(args);
+        }
+        else
+        {
+            UTIL_LOGGING_PRE0();
+        }
+
+        const int result = Catch::Session().run(the_argc, the_argv);
+
+        UTIL_LOGGING_POST(
+            ((result == 0) ? util::Logger::Level::INF : util::Logger::Level::ERR),
+            result);
+
         return result;
     }
     catch (...)

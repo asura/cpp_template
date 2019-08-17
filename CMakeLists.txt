@@ -106,4 +106,5 @@ endif()
 # ビルド対象
 add_subdirectory(vendor/catch2)
 add_subdirectory(vendor/spdlog)
+add_subdirectory(src/util)
 add_subdirectory(test)
