@@ -31,16 +31,16 @@ std::optional<std::size_t> getMemoryUsage()
     std::string pid, comm, state, ppid, pgrp, session, tty_nr;
     std::string tpgid, flags, minflt, cminflt, majflt, cmajflt;
     std::string utime, stime, cutime, cstime, priority, nice;
-    std::string O, itrealvalue, starttime;
-    unsigned long vsize;
-    long rss;
+    std::string o, itrealvalue, starttime;
+    uint64_t vsize;
+    int64_t rss;
 
     stat_stream >> pid >> comm >> state >> ppid >> pgrp >> session >> tty_nr;
     stat_stream >> tpgid >> flags >> minflt >> cminflt >> majflt >> cmajflt;
-    stat_stream >> utime >> stime >> cutime >> cstime >> priority >> nice >> O >> itrealvalue >> starttime;
+    stat_stream >> utime >> stime >> cutime >> cstime >> priority >> nice >> o >> itrealvalue >> starttime;
     stat_stream >> vsize >> rss;
 
-    const long page_size = sysconf(_SC_PAGE_SIZE);
+    const int64_t page_size = sysconf(_SC_PAGE_SIZE);
 
     return rss * page_size;
 #elif defined(__APPLE__) && defined(__MACH__)
