@@ -5,6 +5,7 @@ include_directories(
 add_library(
   util
   Logger.cpp
+  Logger_spdlog.cpp
   memory_usage.cpp
 )
 
