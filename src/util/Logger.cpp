@@ -21,10 +21,10 @@ void Logger::pre(
     int the_line_number,
     const std::string& the_function_name)
 {
-    pre_impl(the_file_name, the_line_number, the_function_name, "start");
+    preImpl(the_file_name, the_line_number, the_function_name, "start");
 }
 
-void Logger::pre_impl(
+void Logger::preImpl(
     const std::string& the_file_name,
     int the_line_number,
     const std::string& the_function_name,
@@ -55,10 +55,10 @@ void Logger::post(
     int the_line_number,
     const std::string& the_function_name)
 {
-    post_impl(the_level, the_file_name, the_line_number, the_function_name, "end");
+    postImpl(the_level, the_file_name, the_line_number, the_function_name, "end");
 }
 
-void Logger::post_impl(
+void Logger::postImpl(
     Level the_level,
     const std::string& the_file_name,
     int the_line_number,

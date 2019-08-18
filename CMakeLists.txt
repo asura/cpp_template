@@ -50,13 +50,7 @@ endif()
 
 #######################################
 # clang-tidyを実行させる (要 CMake 3.6)
-set(
-  CMAKE_CXX_CLANG_TIDY
-  clang-tidy;
-  -checks=*,-fuchsia-default-arguments;
-  -header-filter=${CMAKE_SOURCE_DIR}/include;
-  -warnings-as-errors=*;
-)
+set(CMAKE_CXX_CLANG_TIDY "clang-tidy;--header-filter=${CMAKE_SOURCE_DIR}/include")
 
 #######################################
 # テスト関連

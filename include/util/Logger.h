@@ -62,7 +62,7 @@ public:
             args(oss, std::forward<Args>(the_args)...);
         }
 
-        pre_impl(the_file_name, the_line_number, the_function_name, oss.str());
+        preImpl(the_file_name, the_line_number, the_function_name, oss.str());
     }
 
     /// @brief メソッド終了時のログ出力 (戻り値指定なし)
@@ -94,7 +94,7 @@ public:
         const std::string& the_function_name,
         const U& the_result)
     {
-        post_impl(
+        postImpl(
             the_level,
             the_file_name,
             the_line_number,
@@ -110,7 +110,7 @@ private:
     /// @param [i] the_line_number 行番号
     /// @param [i] the_function_name メソッド名
     /// @param [i] the_message ログメッセージ文字列
-    void pre_impl(
+    void preImpl(
         const std::string& the_file_name,
         int the_line_number,
         const std::string& the_function_name,
@@ -122,7 +122,7 @@ private:
     /// @param [i] the_line_number 行番号
     /// @param [i] the_function_name メソッド名
     /// @param [i] the_message ログメッセージ文字列
-    void post_impl(
+    void postImpl(
         Level the_level,
         const std::string& the_file_name,
         int the_line_number,

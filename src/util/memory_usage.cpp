@@ -45,11 +45,11 @@ std::optional<std::size_t> getMemoryUsage()
     return rss * page_size;
 #elif defined(__APPLE__) && defined(__MACH__)
     mach_task_basic_info_data_t info{};
-    mach_msg_type_number_t infoCount = MACH_TASK_BASIC_INFO_COUNT;
+    mach_msg_type_number_t info_count = MACH_TASK_BASIC_INFO_COUNT;
     auto result = task_info(mach_task_self(),
                             MACH_TASK_BASIC_INFO,
                             reinterpret_cast<task_info_t>(&info),
-                            &infoCount);
+                            &info_count);
     if (result != KERN_SUCCESS)
     {
         return std::nullopt;

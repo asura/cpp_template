@@ -6,7 +6,7 @@ TEST_CASE(
     "getMemoryUsage",
     "[small][util]")
 {
-    const std::size_t MEGA_BYTES = 1024 * 1042;
+    constexpr std::size_t MEGA_BYTES = 1024 * 1042;
 
     std::optional<std::size_t> first = util::getMemoryUsage();
     REQUIRE(first.has_value());
