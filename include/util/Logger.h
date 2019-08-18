@@ -30,6 +30,7 @@ public:
     };
 
     /// @brief メソッド開始時のログ出力 (引数なし)
+    /// infoレベルで、日時、ファイル名、行番号、メソッド名、開始メッセージ、開始時点のメモリ使用量を出力する
     /// @param [i] the_file_name ファイル名 (マクロでは__FILE__を指定)
     /// @param [i] the_line_number 行番号 (マクロでは__LINE__を指定)
     /// @param [i] the_function_name メソッド名 (マクロでは__func__を指定)
@@ -39,11 +40,13 @@ public:
         const std::string& the_function_name);
 
     /// @brief メソッド開始時のログ出力 (引数あり)
+    /// infoレベルで、日時、ファイル名、行番号、メソッド名、開始メッセージ、引数の内容、開始時点のメモリ使用量を出力する
     /// @tparam Args 引数群(可変)の型
     /// @param [i] the_file_name ファイル名 (マクロでは__FILE__を指定)
     /// @param [i] the_line_number 行番号 (マクロでは__LINE__を指定)
     /// @param [i] the_function_name メソッド名 (マクロでは__func__を指定)
     /// @param [i] the_args 引数群
+    /// @note 引数に対応したop<<の定義が必要
     template <typename... Args>
     void pre(
         const std::string& the_file_name,
@@ -63,6 +66,7 @@ public:
     }
 
     /// @brief メソッド終了時のログ出力 (戻り値指定なし)
+    /// 指定レベルで、日時、ファイル名、行番号、メソッド名、終了メッセージ、終了時点のメモリ使用量を出力する
     /// @param [i] the_level ログ出力レベル
     /// @param [i] the_file_name ファイル名 (マクロでは__FILE__を指定)
     /// @param [i] the_line_number 行番号 (マクロでは__LINE__を指定)
@@ -74,12 +78,14 @@ public:
         const std::string& the_function_name);
 
     /// @brief メソッド終了時のログ出力 (戻り値指定あり)
+    /// 指定レベルで、日時、ファイル名、行番号、メソッド名、終了メッセージ、戻り値、終了時点のメモリ使用量を出力する
     /// @tparam U 戻り値の型
     /// @param [i] the_level ログ出力レベル
     /// @param [i] the_file_name ファイル名 (マクロでは__FILE__を指定)
     /// @param [i] the_line_number 行番号 (マクロでは__LINE__を指定)
     /// @param [i] the_function_name メソッド名 (マクロでは__func__を指定)
     /// @param [i] the_result 戻り値
+    /// @note 戻り値に対応したop<<の定義が必要
     template <typename U>
     void post(
         Level the_level,
