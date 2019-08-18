@@ -91,7 +91,8 @@ if(ENABLE_CODECOVERAGE)
 
     add_custom_target(
       coverage
-      gcovr -s -r ${CMAKE_SOURCE_DIR} --html --html-details -o ${CMAKE_BINARY_DIR}/coverage/coverage.html src
+      COMMAND mkdir -p ${CMAKE_BINARY_DIR}/coverage
+      COMMAND gcovr -s -r ${CMAKE_SOURCE_DIR} --html --html-details -o ${CMAKE_BINARY_DIR}/coverage/coverage.html src
     )
   endif()
 endif()
