@@ -14,7 +14,6 @@ target_link_libraries(
   spdlog::spdlog
   util
 )
-cotire(Tester)
 
 add_test(
   NAME Tester

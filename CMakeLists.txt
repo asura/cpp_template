@@ -31,11 +31,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(ENABLE_CODECOVERAGE "Enable code coverage testing support")
 
 #######################################
-# プリコンパイルヘッダ対応
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/vendor/cotire/CMake)
-include(cotire)
-
-#######################################
 # CppCheck対応 (要 CMake 3.10)
 find_program(CMAKE_CXX_CPPCHECK NAMES cppcheck)
 if(CMAKE_CXX_CPPCHECK)
